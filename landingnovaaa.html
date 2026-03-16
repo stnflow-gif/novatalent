@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NovaTalent — Gestión profesional de tu cuenta OnlyFans. Nos encargamos de todo para que tú te enfoques en crear." />
+  <title>NovaTalent — Crea. Nosotros hacemos el resto.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #D4A843;
+      --gold-hover: #E4BC5E;
+      --gold-bg: rgba(212,168,67,0.12);
+      --gold-border: rgba(212,168,67,0.22);
+      --bg: #0a0a0a;
+      --card: #141414;
+      --card2: #1a1a1a;
+      --border: rgba(255,255,255,0.07);
+      --text: #f2f0eb;
+      --muted: #6b6660;
+      --muted2: #9a9590;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 0 48px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10,10,10,0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo img { height: 30px; width: auto; }
+
+    .nav-logo-text {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--muted2);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #0a0a0a;
+      background: var(--gold);
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-primary:hover { background: var(--gold-hover); transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text);
+      background: transparent;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.18); }
+
+    /* HERO */
+    .hero-wrap { background: var(--bg); }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      padding: 120px 64px 80px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--gold-bg);
+      border: 1px solid var(--gold-border);
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    .hero-dot {
+      width: 5px; height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 4.5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span { color: var(--gold); }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--muted2);
+      line-height: 1.72;
+      max-width: 460px;
+      margin-bottom: 36px;
+    }
+
+    .hero-desc strong { color: var(--text); font-weight: 600; }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-actions .btn-primary { font-size: 0.9rem; padding: 14px 28px; border-radius: 10px; }
+    .hero-actions .btn-secondary { font-size: 0.9rem; padding: 14px 24px; border-radius: 10px; }
+
+    /* HERO RIGHT */
+    .hero-right { display: flex; flex-direction: column; gap: 14px; }
+
+    .hero-logo-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-logo-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212,168,67,0.5), transparent);
+    }
+
+    .hero-logo-card img { height: 56px; width: auto; }
+
+    .hero-logo-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .hero-logo-sub { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.04em; }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 18px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: -0.03em;
+      display: block;
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+
+    .stat-label { font-size: 0.73rem; color: var(--muted); }
+
+    /* SECTIONS */
+    .section {
+      padding: 96px 64px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-full {
+      padding: 96px 0;
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-full-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 64px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.12;
+      margin-bottom: 12px;
+    }
+
+    .section-title span { color: var(--gold); }
+
+    .section-sub {
+      font-size: 0.93rem;
+      color: var(--muted2);
+      line-height: 1.72;
+      max-width: 520px;
+      margin-bottom: 52px;
+    }
+
+    .divider { width: 100%; height: 1px; background: var(--border); }
+
+    /* PARA QUIEN */
+    .profiles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .profile-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 32px;
+      transition: border-color 0.25s;
+    }
+
+    .profile-card:hover { border-color: var(--gold-border); }
+
+    .profile-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--gold-bg);
+      border: 1px solid var(--gold-border);
+      padding: 5px 12px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .profile-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .profile-card p {
+      font-size: 0.87rem;
+      color: var(--muted2);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .profile-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .profile-list li {
+      font-size: 0.84rem;
+      color: var(--muted2);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.55;
+    }
+
+    .check {
+      width: 16px; height: 16px;
+      background: var(--gold-bg);
+      border: 1px solid var(--gold-border);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 1px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .check svg { width: 8px; height: 8px; color: var(--gold); }
+
+    /* BENEFICIOS */
+    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+    .benefit-card {
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .benefit-card:hover { border-color: var(--gold-border); transform: translateY(-3px); }
+
+    .benefit-icon {
+      width: 46px; height: 46px;
+      background: var(--gold-bg);
+      border: 1px solid var(--gold-border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .benefit-icon svg { width: 20px; height: 20px; color: var(--gold); }
+
+    .benefit-pill {
+      display: inline-block;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--gold-bg);
+      border: 1px solid var(--gold-border);
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+    }
+
+    .benefit-card h3 { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+
+    .benefit-card p { font-size: 0.84rem; color: var(--muted2); line-height: 1.65; }
+
+    /* SERVICIOS */
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .service-card {
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 32px;
+      transition: border-color 0.25s;
+    }
+
+    .service-card:hover { border-color: var(--gold-border); }
+
+    .service-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      opacity: 0.6;
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    .service-card h3 { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px; }
+
+    .service-card p { font-size: 0.87rem; color: var(--muted2); line-height: 1.68; }
+
+    /* PROCESO */
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+    .process-step {
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 24px;
+    }
+
+    .process-num {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--gold);
+      opacity: 0.16;
+      line-height: 1;
+      margin-bottom: 18px;
+      display: block;
+      letter-spacing: -0.04em;
+    }
+
+    .process-step h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+
+    .process-step p { font-size: 0.83rem; color: var(--muted2); line-height: 1.6; }
+
+    /* PROOF */
+    .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+    .proof-placeholder {
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      aspect-ratio: 9/16;
+      overflow: hidden;
+    }
+
+    .proof-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      border-radius: 20px;
+    }
+
+    .hint {
+      margin-top: 16px;
+      padding: 12px 20px;
+      background: var(--gold-bg);
+      border: 1px dashed var(--gold-border);
+      border-radius: 10px;
+      font-size: 0.77rem;
+      color: var(--gold);
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* TESTIMONIOS */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+    .testimonial-card {
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+    }
+
+    .stars { display: flex; gap: 3px; margin-bottom: 16px; }
+    .stars svg { width: 13px; height: 13px; color: var(--gold); }
+
+    .testimonial-text {
+      font-size: 0.87rem;
+      line-height: 1.7;
+      color: rgba(242,240,235,0.7);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .avatar {
+      width: 34px; height: 34px;
+      background: var(--gold-bg);
+      border: 1px solid var(--gold-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .author-name { font-size: 0.82rem; font-weight: 600; display: block; }
+    .author-detail { font-size: 0.72rem; color: var(--muted); }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 8px; }
+
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .faq-item.open { border-color: var(--gold-border); }
+
+    .faq-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-align: left;
+      padding: 22px 26px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .faq-icon {
+      width: 24px; height: 24px;
+      background: var(--gold-bg);
+      border: 1px solid var(--gold-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+      font-size: 1rem;
+      font-weight: 400;
+      transition: transform 0.3s;
+    }
+
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-item.open .faq-body { max-height: 240px; }
+
+    .faq-body-inner {
+      padding: 0 26px 22px;
+      font-size: 0.87rem;
+      color: var(--muted2);
+      line-height: 1.72;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 100px 64px;
+      max-width: 1280px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .cta-section .section-title { font-size: clamp(2rem, 4vw, 3.4rem); max-width: 600px; margin: 0 auto 16px; }
+
+    .cta-section .section-sub { margin: 0 auto 44px; text-align: center; }
+
+    .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    .cta-buttons .btn-primary { font-size: 0.92rem; padding: 16px 32px; border-radius: 12px; }
+    .cta-buttons .btn-secondary { font-size: 0.92rem; padding: 16px 28px; border-radius: 12px; }
+
+    /* FOOTER */
+    footer {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 64px 64px 40px;
+    }
+
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 48px;
+    }
+
+    .footer-logo-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .footer-logo-row img { height: 26px; opacity: 0.8; }
+    .footer-logo-row span { font-size: 0.86rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+
+    .footer-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.7; margin-bottom: 22px; max-width: 280px; }
+
+    .footer-contacts { display: flex; flex-direction: column; gap: 8px; }
+
+    .footer-contacts a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.81rem;
+      color: var(--muted2);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-contacts a:hover { color: var(--gold); }
+    .footer-contacts svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+    .footer-col h5 {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-col ul li a { font-size: 0.83rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--text); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-bottom p { font-size: 0.76rem; color: var(--muted); }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { font-size: 0.76rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: var(--text); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+    .fade { opacity: 0; transform: translateY(22px); }
+    .fade.in { animation: fadeUp 0.6s ease forwards; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero, .section, .section-full-inner, .cta-section { padding-left: 32px; padding-right: 32px; }
+      .benefits-grid { grid-template-columns: 1fr 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      footer { padding-left: 32px; padding-right: 32px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 100px 20px 60px; gap: 36px; }
+      .hero-right { display: none; }
+      .hero h1 { font-size: 2.4rem; }
+      .section { padding: 64px 20px; }
+      .section-full-inner { padding: 0 20px; }
+      .profiles-grid, .services-grid, .testimonials-grid, .benefits-grid, .proof-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .cta-section { padding: 64px 20px; }
+      footer { padding: 48px 20px 32px; }
+    }
+
+    @media (max-width: 480px) {
+      .process-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="./images/novatalent-logo-icon.png" alt="NovaTalent" onerror="this.style.display='none'">
+    <span class="nav-logo-text">NovaTalent</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#para-quien">Para quien</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#como-funciona">Como funciona</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="https://wa.me/59170170357?text=Hola,%20quiero%20saber%20más%20sobre%20NovaTalent" target="_blank" class="btn-primary">Hablar con nosotros →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero-wrap">
+  <div class="hero">
+    <div>
+      <span class="hero-tag">
+        <span class="hero-dot"></span>
+        Agencia de gestion · OnlyFans
+      </span>
+
+      <h1>
+        Tu contenido.<br>
+        <span>Nuestro trabajo.</span><br>
+        Tu cobras.
+      </h1>
+
+      <p class="hero-desc">
+        Nos encargamos de todo lo que no te deja crecer: mensajes, estrategia, marketing y monetizacion. <strong>Tu solo enfocate en crear</strong> — nosotros convertimos tu contenido en ingresos reales.
+      </p>
+
+      <div class="hero-actions">
+        <a href="https://wa.me/59170170357?text=Hola,%20me%20interesa%20trabajar%20con%20NovaTalent" target="_blank" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.05 2.05C6.495 2.05 2 6.545 2 12.1c0 1.79.47 3.47 1.29 4.93L2 22l5.08-1.26A10.03 10.03 0 0012.05 22c5.555 0 10.05-4.495 10.05-10.05S17.605 2.05 12.05 2.05z"/></svg>
+          Quiero aplicar
+        </a>
+        <a href="https://www.instagram.com/novatalent.agency" target="_blank" class="btn-secondary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+          Ver instagram
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-logo-card">
+        <img src="./images/novatalent-logo-full.png" alt="NovaTalent" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span style="display:none;font-size:1.5rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);">NOVATALENT</span>
+        <span class="hero-logo-name">NOVATALENT</span>
+        <span class="hero-logo-sub">Gestion profesional de OnlyFans</span>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-num">24/7</span>
+          <span class="stat-label">Gestion de mensajes</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">4</span>
+          <span class="stat-label">Servicios especializados</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Enfoque en resultados</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">+20h</span>
+          <span class="stat-label">Recuperadas por semana</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PARA QUIEN -->
+<section class="section" id="para-quien">
+  <p class="section-tag fade">Para quien es</p>
+  <h2 class="section-title fade">Cual es tu <span>situacion hoy?</span></h2>
+  <p class="section-sub fade">No importa en que punto estes. Tenemos una estrategia para cada perfil de creadora.</p>
+
+  <div class="profiles-grid">
+    <div class="profile-card fade">
+      <span class="profile-badge">Empezando desde cero</span>
+      <h3>Tienes contenido pero no ingresos</h3>
+      <p>Quieres monetizar tu contenido en OnlyFans pero no sabes por donde arrancar ni como atraer a tus primeros fans.</p>
+      <ul class="profile-list">
+        <li>
+          <span class="check"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>
+          Lanzamos tu cuenta con la estrategia correcta desde el dia uno
+        </li>
+        <li>
+          <span class="check"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>
+          Definimos tu estructura de precios y tus primeras acciones de monetizacion
+        </li>
+        <li>
+          <span class="check"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>
+          Gestionamos tus mensajes para que puedas crear sin interrupciones
+        </li>
+      </ul>
+    </div>
+
+    <div class="profile-card fade">
+      <span class="profile-badge">Con cuenta activa</span>
+      <h3>Ya estas activa pero quieres mas</h3>
+      <p>Tienes subscribers, publicas contenido, pero sientes que tu cuenta no esta generando lo que realmente podria.</p>
+      <ul class="profile-list">
+        <li>
+          <span class="check"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>
+          Auditamos tu cuenta e identificamos que te esta frenando
+        </li>
+        <li>
+          <span class="check"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>
+          Optimizamos tu estrategia de precios, PPV y upselling
+        </li>
+        <li>
+          <span class="check"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2,5 4.5,7.5 8,3"/></svg></span>
+          Escalamos tu base de fans con marketing que funciona
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BENEFICIOS -->
+<div class="section-full">
+  <div class="section-full-inner">
+    <p class="section-tag fade">Por que elegirnos</p>
+    <h2 class="section-title fade">Lo que <span>ganas</span> trabajando con nosotros</h2>
+    <p class="section-sub fade">Cada decision que tomamos esta orientada a un solo objetivo: que crezcas sin que la operacion te consuma.</p>
+
+    <div class="benefits-grid">
+      <div class="benefit-card fade">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <span class="benefit-pill">+Ingresos</span>
+        <h3>Mas Ingresos</h3>
+        <p>Optimizamos cada palanca de monetizacion para que cada fan valga mas — sin que trabajes mas horas.</p>
+      </div>
+
+      <div class="benefit-card fade">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <span class="benefit-pill">0 Estres</span>
+        <h3>Menos Estres</h3>
+        <p>Mensajes, estrategia, marketing. Nosotros nos encargamos. Tu solo creates — que es lo que realmente importa.</p>
+      </div>
+
+      <div class="benefit-card fade">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <span class="benefit-pill">24/7 Crecimiento</span>
+        <h3>Crecimiento Profesional</h3>
+        <p>Con una estrategia solida y ejecucion constante, tu perfil crece mes a mes de forma sostenible.</p>
+      </div>
+
+      <div class="benefit-card fade">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <span class="benefit-pill">Equipo Experto</span>
+        <h3>Equipo Experto</h3>
+        <p>Cada area de tu negocio tiene a alguien especializado dedicado a ella. No un generalista, sino expertos reales.</p>
+      </div>
+
+      <div class="benefit-card fade">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </div>
+        <span class="benefit-pill">100% Garantia</span>
+        <h3>Resultados Garantizados</h3>
+        <p>Sin promesas infladas. Trabajamos con datos, ajustamos la estrategia y reportamos resultados concretos.</p>
+      </div>
+
+      <div class="benefit-card fade">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <span class="benefit-pill">+Tiempo Libre</span>
+        <h3>Mas Tiempo Libre</h3>
+        <p>Las horas que antes pasabas en la gestion ahora son tuyas. Para crear, descansar o vivir tu vida.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICIOS -->
+<section class="section" id="servicios">
+  <p class="section-tag fade">Lo que hacemos</p>
+  <h2 class="section-title fade">Cuatro pilares que <span>transforman</span> tu cuenta</h2>
+  <p class="section-sub fade">Un enfoque integral para que ningun aspecto de tu negocio quede sin atencion.</p>
+
+  <div class="services-grid">
+    <div class="service-card fade">
+      <span class="service-num">01</span>
+      <h3>Gestion de Mensajes</h3>
+      <p>Nuestro equipo responde mensajes las 24 horas del dia. Convertimos conversaciones en ventas y construimos la conexion que hace que tus fans se queden. Tu nunca mas pierdes horas en el chat.</p>
+    </div>
+
+    <div class="service-card fade">
+      <span class="service-num">02</span>
+      <h3>Estrategia de Contenido</h3>
+      <p>Te decimos que crear, cuando publicar y como presentar tu contenido para que genere mas. Sin adivinar. Con datos, experiencia y conocimiento real del mercado.</p>
+    </div>
+
+    <div class="service-card fade">
+      <span class="service-num">03</span>
+      <h3>Marketing y Crecimiento de Fans</h3>
+      <p>Atraemos fans cualificados a tu perfil a traves de estrategias de marketing probadas. Mas subscribers reales, crecimiento sostenido y menos tiempo de tu parte.</p>
+    </div>
+
+    <div class="service-card fade">
+      <span class="service-num">04</span>
+      <h3>Monetizacion y Precios</h3>
+      <p>Optimizamos tu estructura de precios, contenido PPV y estrategia de upselling para que cada fan gaste mas — de forma natural, sin presion y sin que tu tengas que estar presente.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMO FUNCIONA -->
+<section class="section" id="como-funciona">
+  <p class="section-tag fade">El proceso</p>
+  <h2 class="section-title fade">De la aplicacion al <span>crecimiento</span></h2>
+  <p class="section-sub fade">Simple, directo y sin compromisos hasta que veas que funciona.</p>
+
+  <div class="process-grid">
+    <div class="process-step fade">
+      <span class="process-num">01</span>
+      <h4>Nos escribes</h4>
+      <p>Por WhatsApp o Instagram. Sin formularios largos ni esperas. Una conversacion directa.</p>
+    </div>
+    <div class="process-step fade">
+      <span class="process-num">02</span>
+      <h4>Hablamos</h4>
+      <p>Entendemos tu situacion actual, tus metas y definimos si somos el equipo correcto para ti.</p>
+    </div>
+    <div class="process-step fade">
+      <span class="process-num">03</span>
+      <h4>Disenamos tu plan</h4>
+      <p>Creamos una estrategia personalizada para tu perfil, tu contenido y tu audiencia especifica.</p>
+    </div>
+    <div class="process-step fade">
+      <span class="process-num">04</span>
+      <h4>Arrancamos</h4>
+      <p>Nuestro equipo toma el control de las areas acordadas. Tu solo creates.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRUEBA SOCIAL -->
+<div class="section-full">
+  <div class="section-full-inner">
+    <p class="section-tag fade">Resultados reales</p>
+    <h2 class="section-title fade">Numeros que <span>hablan</span> por si solos</h2>
+    <p class="section-sub fade">Sin promesas infladas. Solo resultados concretos de creadoras reales con las que trabajamos.</p>
+
+    <div class="proof-grid fade">
+      <div class="proof-placeholder">
+        <img src="./proof1.png" alt="Resultado Telegram - 6,433 subscribers">
+      </div>
+      <div class="proof-placeholder">
+        <img src="./proof2.jpg" alt="Resultado Twitter - 139.5K impresiones">
+      </div>
+      <div class="proof-placeholder">
+        <img src="./proof3.jpg" alt="Resultado Telegram - crecimiento 6,573 seguidores">
+      </div>
+    </div>
+
+    <!-- CASOS DE ESTUDIO -->
+    <div style="margin-top:72px;">
+      <p class="section-tag fade">Casos de Estudio</p>
+      <h3 class="section-title fade" style="font-size:clamp(1.6rem,2.5vw,2.2rem);">Perfiles reales, <span>resultados reales</span></h3>
+
+      <div class="testimonials-grid" style="margin-top:36px;">
+        <div class="testimonial-card fade">
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-text">Llego con cuenta nueva y cero subscribers. El primer mes trabajamos su perfil, precio de suscripcion y estrategia de bienvenida para nuevos fans. Al mes 2 ya tenia ingresos consistentes y no tocaba el chat — nosotros lo manejabamos todo.</p>
+          <div class="testimonial-author">
+            <div class="avatar">V</div>
+            <div>
+              <span class="author-name">Valentina — Cuenta nueva</span>
+              <span class="author-detail">Resultado: primeros ingresos en 30 dias</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade">
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-text">Tenia 8 meses activa pero sus ingresos estaban estancados. El problema era el precio — cobraba muy poco y sin estrategia de PPV. Reestructuramos su monetizacion, implementamos contenido de pago por mensaje y en 6 semanas sus ingresos mensuales se habian mas que duplicado.</p>
+          <div class="testimonial-author">
+            <div class="avatar">S</div>
+            <div>
+              <span class="author-name">Sofia — Cuenta activa estancada</span>
+              <span class="author-detail">Resultado: ingresos duplicados en 6 semanas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade">
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-text">Generaba bien pero pasaba horas al dia respondiendo fans en el chat. No le quedaba energia para crear. Tomamos el 100% de la gestion de mensajes con scripts personalizados a su tono. Sus fans no notaron el cambio y ella recupero sus mananas completas para producir contenido.</p>
+          <div class="testimonial-author">
+            <div class="avatar">C</div>
+            <div>
+              <span class="author-name">Camila — Creadora con alto volumen</span>
+              <span class="author-detail">Resultado: +20h semanales recuperadas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <p class="section-tag fade">Preguntas frecuentes</p>
+  <h2 class="section-title fade">Todo lo que <span>necesitas</span> saber</h2>
+  <p class="section-sub fade">Si tienes alguna duda que no esta aqui, escribenos directamente.</p>
+
+  <div class="faq-list fade">
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        Necesito tener cuenta en OnlyFans para aplicar?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">No. Trabajamos tanto con creadoras que estan empezando desde cero como con quienes ya tienen cuenta activa. En ambos casos, adaptamos completamente la estrategia a tu punto de partida.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        Cuanto control mantengo sobre mi cuenta?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">Todo el control es tuyo. Nosotros gestionamos las areas operativas que acordemos juntos, pero las decisiones sobre tu contenido, tu imagen y tu marca siempre son tuyas. Somos tu equipo de soporte, no tus jefes.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        Como es el modelo de trabajo?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">Primero hablamos, entendemos tu situacion y definimos los terminos que tienen sentido para ambas partes. Los detalles del acuerdo los vemos directamente en nuestra primera conversacion, sin letra chica.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        Que pasa si no veo resultados?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">Nuestro trabajo depende de tus resultados. Si algo no esta funcionando, lo ajustamos. Somos transparentes sobre lo que esta pasando y por que — y seguimos trabajando hasta que funcione.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        Mi identidad y privacidad estan protegidas?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">Absolutamente. La privacidad de nuestras creadoras es prioridad no negociable. Operamos con total discrecion y nunca compartimos datos, contenido ni informacion de ningun tipo sin tu consentimiento explicito.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA FINAL -->
+<div class="cta-section">
+  <p class="section-tag fade" style="display:block;text-align:center;">Un solo paso</p>
+  <h2 class="section-title fade">Lista para enfocarte <span>solo en crear?</span></h2>
+  <p class="section-sub fade">Escribenos hoy. Sin compromisos, sin presion. Solo una conversacion honesta sobre lo que podemos construir juntos.</p>
+
+  <div class="cta-buttons fade">
+    <a href="https://wa.me/59170170357?text=Hola,%20me%20interesa%20trabajar%20con%20NovaTalent." target="_blank" class="btn-primary">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.05 2.05C6.495 2.05 2 6.545 2 12.1c0 1.79.47 3.47 1.29 4.93L2 22l5.08-1.26A10.03 10.03 0 0012.05 22c5.555 0 10.05-4.495 10.05-10.05S17.605 2.05 12.05 2.05z"/></svg>
+      Escribi por WhatsApp
+    </a>
+    <a href="https://www.instagram.com/novatalent.agency" target="_blank" class="btn-secondary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+      Siguenos en Instagram
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo-row">
+          <img src="./images/novatalent-logo-icon.png" alt="NovaTalent" onerror="this.style.display='none'">
+          <span>NovaTalent</span>
+        </div>
+        <p class="footer-desc">La agencia de gestion para creadoras de OnlyFans que quieren crecer sin perder su tiempo ni su libertad.</p>
+        <div class="footer-contacts">
+          <a href="https://wa.me/59170170357" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.05 2.05C6.495 2.05 2 6.545 2 12.1c0 1.79.47 3.47 1.29 4.93L2 22l5.08-1.26A10.03 10.03 0 0012.05 22c5.555 0 10.05-4.495 10.05-10.05S17.605 2.05 12.05 2.05z"/></svg>
+            WhatsApp
+          </a>
+          <a href="https://www.instagram.com/novatalent.agency" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+            @novatalent.agency
+          </a>
+          <a href="https://www.instagram.com/ig.montenegro" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+            @ig.montenegro
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="#servicios">Gestion de Mensajes</a></li>
+          <li><a href="#servicios">Estrategia de Contenido</a></li>
+          <li><a href="#servicios">Marketing y Crecimiento</a></li>
+          <li><a href="#servicios">Monetizacion y Precios</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Empresa</h5>
+        <ul>
+          <li><a href="#como-funciona">Como Funciona</a></li>
+          <li><a href="#para-quien">Para Quien</a></li>
+          <li><a href="#faq">Preguntas Frecuentes</a></li>
+          <li><a href="https://www.instagram.com/novatalent.agency" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 NovaTalent. Todos los derechos reservados.</p>
+      <div class="footer-legal">
+        <a href="#">Politica de Privacidad</a>
+        <a href="#">Terminos de Servicio</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -28px 0px' });
+
+  document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
